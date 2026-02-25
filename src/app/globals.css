@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
+  /* Light Mode - The "Cloud" Aesthetic */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+  --glow-color: #e0f2fe;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --muted-text: #64748b;
+  
+  /* Smooth transitions for theme switching */
+  --transition-speed: 0.5s;
+}
+
+/* Switch from @media to .dark class for manual control */
+.dark {
+  --background: #050505;
+  --foreground: #ededed;
+  --glow-color: #0c1e2e;
+  --card-bg: rgba(15, 15, 15, 0.8);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --muted-text: #a1a1aa;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted-text);
+  --color-card: var(--card-bg);
+  --color-border-subtle: var(--card-border);
+  
+  --font-sans: "Inter", var(--font-geist-sans), ui-sans-serif, system-ui;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  /* This ensures every element transitions smoothly when you hit the moon icon */
+  transition: background-color var(--transition-speed) ease, 
+              border-color var(--transition-speed) ease, 
+              color var(--transition-speed) ease;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Fixed the radial gradient to use the CSS variable */
+  background-image: radial-gradient(
+    circle at 50% -10%, 
+    var(--glow-color) 0%, 
+    var(--background) 70%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Selection colors also update based on theme variables */
+::selection {
+  background-color: var(--glow-color);
+  color: var(--foreground);
+}
+@theme {
+  /* Define the animation */
+  --animate-marquee: marquee 40s linear infinite;
+
+  /* Define the keyframes */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
