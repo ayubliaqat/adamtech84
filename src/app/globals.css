@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Mode - The "Cloud" Aesthetic */
+  /* Light Mode - Soft & Airy */
   --background: #ffffff;
-  --foreground: #111111;
-  --glow-color: #e0f2fe;
+  --foreground: #0f172a; 
+  --glow-color: rgba(80, 199, 199, 0.15); /* Soft Teal Glow */
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(0, 0, 0, 0.06);
   --muted-text: #64748b;
-  
-  /* Smooth transitions for theme switching */
-  --transition-speed: 0.5s;
+  --accent-blue: #38bdf8;
 }
 
-/* Switch from @media to .dark class for manual control */
 .dark {
-  --background: #050505;
-  --foreground: #ededed;
-  --glow-color: #0c1e2e;
-  --card-bg: rgba(15, 15, 15, 0.8);
+  /* Dark Mode - Deep Tech Blue/Black */
+  --background: #020617; 
+  --foreground: #f8fafc;
+  --glow-color: rgba(56, 189, 248, 0.1); /* Subtle Electric Blue Glow */
+  --card-bg: rgba(15, 23, 42, 0.8);
   --card-border: rgba(255, 255, 255, 0.1);
-  --muted-text: #a1a1aa;
+  --muted-text: #94a3b8;
+  --accent-blue: #0ea5e9;
 }
 
 @theme inline {
@@ -29,49 +28,56 @@
   --color-muted: var(--muted-text);
   --color-card: var(--card-bg);
   --color-border-subtle: var(--card-border);
-  
-  --font-sans: "Inter", var(--font-geist-sans), ui-sans-serif, system-ui;
+  --color-accent: var(--accent-blue);
 }
 
-* {
-  /* This ensures every element transitions smoothly when you hit the moon icon */
-  transition: background-color var(--transition-speed) ease, 
-              border-color var(--transition-speed) ease, 
-              color var(--transition-speed) ease;
-}
-
+/* Base reset for smooth theme switching */
 body {
   background-color: var(--background);
   color: var(--foreground);
-  /* Fixed the radial gradient to use the CSS variable */
+  transition: background-color 0.4s ease, color 0.4s ease;
+  
+  /* The "Wow" Factor: Top-center radial glow */
   background-image: radial-gradient(
     circle at 50% -10%, 
     var(--glow-color) 0%, 
-    var(--background) 70%
+    transparent 60%
   );
   background-attachment: fixed;
   min-height: 100vh;
 }
 
-/* Glassmorphism Utility */
+/* Pro Glassmorphism */
 .glass {
   background: var(--card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Selection colors also update based on theme variables */
-::selection {
-  background-color: var(--glow-color);
-  color: var(--foreground);
+.dark .glass {
+  /* Deepens the shadow in dark mode so the cards don't look flat */
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
 }
+
+/* Clean scrollbar for Dark Mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-text);
+}
+
 @theme {
-  /* Define the animation */
   --animate-marquee: marquee 40s linear infinite;
-
-  /* Define the keyframes */
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }

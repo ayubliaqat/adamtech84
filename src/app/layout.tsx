@@ -26,24 +26,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // "suppressHydrationWarning" is added because dark mode toggles 
+    // often cause a tiny mismatch between server and client HTML.
+    <html lang="en" suppressHydrationWarning>
       <body
-  className={`
-    ${geistSans.variable} 
-    ${geistMono.variable} 
-    antialiased 
-    flex 
-    flex-col 
-    min-h-screen
-    bg-[radial-gradient(circle_at_center,_#50c7c7_0%,_#a8e6e6_40%,_#f5fdfd_75%,_#ffffff_100%)]
-  `}
->
+        className={`
+          ${geistSans.variable} 
+          ${geistMono.variable} 
+          antialiased 
+          flex 
+          flex-col 
+          min-h-screen
+        `}
+      >
         <Header />
-
         <main className="flex-1">
           {children}
         </main>
-
         <Footer />
       </body>
     </html>

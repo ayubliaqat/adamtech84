@@ -1,118 +1,152 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FiCheckCircle, FiCpu, FiGlobe, FiBarChart2, FiArrowUpRight } from "react-icons/fi";
+import { FiCode, FiZap, FiTarget, FiTrendingUp, FiCheck, FiArrowRight } from "react-icons/fi";
 
-export default function ServiceConsultancy() {
-  const domains = [
-    { 
-      title: "Systems Engineering", 
-      icon: <FiCpu />, 
-      skills: "Python, R, C/C++, Automation pipelines, and architectural code reviews." 
+export default function ServiceTraining() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const programs = [
+    {
+      category: "Programming",
+      icon: <FiCode />,
+      topics: ["Python (Automation)", "R (Statistics)", "C/C++ (Systems)"],
+      color: "from-blue-500/10"
     },
-    { 
-      title: "Applied AI & Data", 
-      icon: <FiBarChart2 />, 
-      skills: "End-to-end ML pipelines, TensorFlow, Keras, and predictive data strategy." 
+    {
+      category: "AI & Data",
+      icon: <FiZap />,
+      topics: ["ML Pipelines", "Scikit-learn / TensorFlow", "Data Storytelling"],
+      color: "from-cyan-500/10"
     },
-    { 
-      title: "Network Infrastructure", 
-      icon: <FiGlobe />, 
-      skills: "Enterprise architecture, protocol optimization, and high-stakes security." 
+    {
+      category: "Networking",
+      icon: <FiTarget />,
+      topics: ["TCP/IP Fundamentals", "Network Security", "VPN & Encryption"],
+      color: "from-indigo-500/10"
     }
   ];
 
-  return (
-    <section className="max-w-7xl mx-auto px-6" aria-labelledby="consultancy-heading">
-      {/* Container with top border that respects the max-width alignment */}
-      <div className="py-6 md:py-12 border-t border-zinc-100 dark:border-zinc-800">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-          
-          {/* 1. Left Side: Positioning */}
-          <div className="lg:w-1/3 flex flex-col justify-start">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="text-cyan-600 dark:text-cyan-400 font-bold tracking-[0.2em] text-[10px] uppercase">
-                Pillar 01
-              </span>
-              <h2 id="consultancy-heading" className="text-3xl md:text-4xl font-bold mt-4 tracking-tight text-foreground">
-                Strategic <br className="hidden lg:block" /> Consulting
-              </h2>
-              
-              <p className="mt-6 text-muted text-[16px] leading-relaxed font-light">
-                Providing high-level technical advisory for companies and startups. 
-                I bridge the gap between complex infrastructure and intelligent automation.
-              </p>
+  if (!mounted) return null;
 
-              <div className="mt-10 space-y-6">
-                {[
-                  { label: "SMEs", detail: "Infrastructure & Project Support" },
-                  { label: "Startups", detail: "Data Strategy & AI Roadmap" },
-                  { label: "Freelancers", detail: "Technical Mentorship" }
-                ].map((item) => (
-                  <div key={item.label} className="group flex items-start gap-4">
-                    <div className="mt-1 flex-shrink-0">
-                      <FiCheckCircle className="text-cyan-500 transition-transform group-hover:scale-110" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-foreground leading-none mb-1.5">{item.label}</p>
-                      <p className="text-xs text-muted font-medium">{item.detail}</p>
-                    </div>
-                  </div>
-                ))}
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-12 md:py-24 bg-background transition-colors duration-500" aria-labelledby="training-heading">
+      
+      {/* 1. MAIN CONTAINER: Using your theme variable 'bg-card-background' */}
+      <div className="relative bg-card-background border border-border-subtle rounded-[2.5rem] md:rounded-[4rem] px-8 py-16 md:p-20 overflow-hidden shadow-2xl transition-all duration-500">
+        
+        {/* Deep Mind Glow - Subtle and theme-aware */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/[0.03] dark:bg-cyan-500/[0.07] blur-[120px] rounded-full pointer-events-none -z-10" />
+
+        {/* Header Section */}
+        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-cyan-600 font-bold tracking-[0.4em] text-[10px] md:text-[11px] uppercase mb-6 block"
+          >
+            // Pillar 02: Educational Excellence
+          </motion.span>
+          
+          <h2 id="training-heading" className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 text-foreground leading-[0.95] transition-colors duration-500">
+            Training <span className="text-cyan-600 italic font-medium">Programs.</span>
+          </h2>
+          
+          <p className="text-muted max-w-2xl text-[17px] md:text-xl font-light leading-relaxed transition-colors duration-500">
+            Bridge the gap between academic theory and industry reality. 
+            Practical mentorship designed for 
+            <span className="text-foreground font-medium italic underline underline-offset-8 decoration-cyan-500/30 ml-1">high-impact careers</span>.
+          </p>
+        </div>
+
+        {/* Program Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative z-10">
+          {programs.map((prog, i) => (
+            <motion.div 
+              key={prog.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              /* CARD: Using background-background to pop against card-background */
+              className="group bg-background p-8 lg:p-10 rounded-[2.5rem] border border-border-subtle hover:border-cyan-500/30 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden relative"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${prog.color} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-card-background border border-border-subtle flex items-center justify-center text-cyan-600 mb-10 text-2xl group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500 shadow-sm">
+                  {prog.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-8 text-foreground tracking-tight transition-colors duration-500">{prog.category}</h3>
+                <ul className="space-y-5">
+                  {prog.topics.map(topic => (
+                    <li key={topic} className="flex items-center gap-4 text-sm text-muted font-light group-hover:text-foreground transition-colors">
+                      <FiCheck className="text-cyan-500 flex-shrink-0" />
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
-          </div>
+          ))}
+        </div>
 
-          {/* 2. Right Side: Service Grid */}
-          <div className="lg:w-2/3">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {domains.map((domain, i) => (
-                <motion.div 
-                  key={domain.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="glass group p-8 rounded-[2rem] hover:border-cyan-500/50 transition-all duration-500 flex flex-col justify-between min-h-[280px]"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 border border-border-subtle flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-8 shadow-sm group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500">
-                      {domain.icon}
-                    </div>
-                    <h4 className="text-xl font-bold mb-4 tracking-tight text-foreground">{domain.title}</h4>
-                    <p className="text-sm text-muted leading-relaxed font-light">
-                      {domain.skills}
-                    </p>
-                  </div>
-                  
-                  <div className="mt-8 flex justify-end">
-                     <FiArrowUpRight className="text-muted group-hover:text-cyan-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" size={20} />
-                  </div>
-                </motion.div>
+        {/* Why Train With Me */}
+        <div className="mt-28 md:mt-40 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <h3 className="text-3xl md:text-5xl font-bold italic text-foreground leading-[1.1] tracking-tight transition-colors duration-500">
+              &quot;A practical approach tailored for the <span className="text-cyan-600">German job market.</span>&quot;
+            </h3>
+            
+            <div className="grid grid-cols-2 gap-x-8 gap-y-12">
+              {[
+                { label: "Experience", value: "12+ Years Industry" },
+                { label: "Education", value: "MSc Data Science" },
+                { label: "Location", value: "Online / Berlin" },
+                { label: "Focus", value: "Job-Ready Skills" }
+              ].map((stat) => (
+                <div key={stat.label} className="border-l-2 border-cyan-500 pl-6 group">
+                  <p className="text-[10px] font-black uppercase text-muted tracking-[0.2em] mb-2 group-hover:text-cyan-600 transition-colors">{stat.label}</p>
+                  <p className="text-lg font-bold text-foreground tracking-tight transition-colors duration-500">{stat.value}</p>
+                </div>
               ))}
-              
-              {/* Specialized "Audit" CTA Card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="bg-zinc-900 dark:bg-zinc-100 p-8 rounded-[2rem] flex flex-col justify-center items-center text-center group cursor-pointer border border-transparent hover:border-cyan-500 transition-all duration-500 shadow-xl shadow-black/5"
-              >
-                 <p className="text-zinc-500 dark:text-zinc-400 text-[10px] font-bold uppercase tracking-widest mb-4">Immediate Value</p>
-                 <h4 className="text-white dark:text-zinc-900 text-xl font-bold leading-tight">Request a <br /> Technical Audit</h4>
-                 <p className="mt-3 text-zinc-400 dark:text-zinc-500 text-xs px-4">Let&apos;s identify the bottlenecks in your stack.</p>
-                 <div className="mt-6 w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                   <FiArrowUpRight size={20} />
-                 </div>
-              </motion.div>
             </div>
-          </div>
-
+          </motion.div>
+          
+          {/* HIGH CONTRAST BOX: Flips using your variables */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-foreground text-background p-12 md:p-16 rounded-[3.5rem] relative overflow-hidden group shadow-2xl transition-colors duration-500"
+          >
+            <FiTrendingUp className="absolute -right-16 -bottom-16 text-[22rem] opacity-[0.05] pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
+            
+            <div className="relative z-10">
+              <h4 className="text-3xl font-bold mb-8 tracking-tighter transition-colors duration-500">Who is this for?</h4>
+              <ul className="space-y-6 mb-12 opacity-70">
+                {["Fresh graduates in CS/Engineering", "Juniors looking to upskill", "Newcomers to German Tech"].map(item => (
+                  <li key={item} className="flex items-center gap-4 text-base font-light">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              
+              <button className="w-full sm:w-auto bg-background text-foreground px-10 py-5 rounded-full font-bold text-[11px] uppercase tracking-[0.2em] hover:bg-cyan-500 hover:text-white transition-all duration-500 shadow-xl group/btn flex items-center justify-center gap-3">
+                Check Availability <FiArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
