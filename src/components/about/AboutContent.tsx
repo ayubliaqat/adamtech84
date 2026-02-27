@@ -8,18 +8,22 @@ export default function IntroSection() {
     <section id="introduction" className="scroll-mt-48 space-y-10">
       {/* 1. TOP BADGE & HEADERS */}
       <header className="space-y-6">
-        <motion.div 
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-cyan-500/5 border border-cyan-500/20 text-[10px] font-bold text-cyan-600 dark:text-cyan-400 tracking-widest uppercase"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-          </span>
-          Book a call now
-        </motion.div>
+      <motion.a 
+  href="/book" // 👈 Added navigation
+  initial={{ opacity: 0, x: -10 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  whileHover={{ scale: 1.05, backgroundColor: "rgba(6, 182, 212, 0.1)" }} // Subtle hover lift
+  whileTap={{ scale: 0.98 }}
+  viewport={{ once: true }}
+  /* UPDATED PADDING: px-6 py-2 instead of px-4 py-1.5 */
+  className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-cyan-500/5 border border-cyan-500/20 text-[10px] font-bold text-cyan-600 dark:text-cyan-400 tracking-widest uppercase cursor-pointer transition-colors duration-300"
+>
+  <span className="relative flex h-2 w-2">
+    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+  </span>
+  Book a call now
+</motion.a>
 
         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-foreground leading-[0.9]">
           Adam <span className="text-cyan-600 italic">Tech.</span>

@@ -69,7 +69,7 @@ export default function AboutSection() {
                 />
               </div>
             </section>
-<EducationSection />
+            <EducationSection />
             {/* SECTION 4: TECHNICAL SKILLS */}
             <section id="skills" className="scroll-mt-32 space-y-12 pb-20">
               <h3 className="text-cyan-600 uppercase text-[11px] font-black tracking-[0.4em] flex items-center gap-3">

@@ -39,7 +39,7 @@ export default function ServiceCTA() {
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              href="mailto:contact@adamtech.com"
+              href="/contact"
               className="w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-full font-bold text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-cyan-600 transition-all"
             >
               Get in Touch <FiArrowRight size={14} />
