@@ -1,5 +1,5 @@
 "use client";
-import Cal, { getCalApi } from "@calcom/embed-react";
+import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { useTheme } from "next-themes"; 
 
@@ -12,69 +12,47 @@ export default function BookPage() {
       const cal = await getCalApi();
       cal("ui", {
         theme: isDark ? "dark" : "light",
-        styles: {
-          branding: { brandColor: "#06b6d4" },
-          body: { background: "transparent" }
-        },
-        ...({
-          cssVars: {
-            "--cal-bg": "transparent",
-            "--cal-text": isDark ? "#ffffff" : "#18181b",
-            "--cal-border": isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
-          }
-        } as any),
+        styles: { branding: { brandColor: "#06b6d4" } },
         hideEventTypeDetails: false,
-        layout: "month_view",
       });
     })();
   }, [isDark]);
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20 transition-colors duration-500">
-      <div className="max-w-[1400px] mx-auto px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <main className="min-h-screen bg-background flex items-center justify-center p-6">
+      <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div className="space-y-6">
+          <span className="text-accent font-bold tracking-widest text-xs uppercase opacity-70">
+            // Direct Booking
+          </span>
+          <h1 className="text-6xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+            Secure <br /> your <span className="text-accent italic font-medium">Slot.</span>
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            Pick a time that works for you. No back-and-forth emails.
+          </p>
           
-          {/* LEFT COLUMN: TITLE */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-6">
-            <span className="text-accent font-bold tracking-[0.5em] text-[10px] uppercase block underline decoration-accent/30 underline-offset-8">
-              // Availability
-            </span>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-foreground leading-[0.85]">
-              Secure <br /> your <span className="text-accent italic font-medium">Slot.</span>
-            </h1>
-          </div>
+          {/* THE TRIGGER BUTTON */}
+          <button
+            data-cal-link="ayubliaqat495"
+            data-cal-config='{"layout":"month_view"}'
+            className={`
+              px-8 py-4 rounded-full font-bold text-lg transition-all
+              ${isDark 
+                ? 'bg-white text-black hover:bg-zinc-200' 
+                : 'bg-zinc-900 text-white hover:bg-zinc-800'}
+            `}
+          >
+            View Availability
+          </button>
+        </div>
 
-          {/* RIGHT COLUMN: THE ADAPTIVE CARD */}
-          <div className="lg:col-span-8">
-            <div 
-              /* The 'key' ensures the iframe reloads colors immediately when theme switches */
-              key={resolvedTheme} 
-              className={`
-                relative p-1 rounded-[2.5rem] transition-all duration-700
-                ${isDark 
-                  ? 'bg-zinc-900 border border-white/5 shadow-2xl' 
-                  : 'bg-zinc-100 border border-black/5 shadow-xl'
-                }
-              `}
-            >
-              <div className="p-2 md:p-4">
-                <Cal
-                  calLink="ayubliaqat495"
-                  style={{ 
-                    width: "100%", 
-                    /* minHeight allows the container to grow so you can scroll to the end options */
-                    minHeight: "750px", 
-                    background: "transparent" 
-                  }}
-                  config={{ 
-                    layout: "month_view",
-                    theme: isDark ? "dark" : "light" 
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-
+        <div className="hidden lg:block mt-20">
+           {/* You can put an image or abstract graphic here since the Cal is now a popup */}
+           <div className="aspect-square bg-accent/10 rounded-3xl border border-accent/20 flex items-center justify-center">
+              <span className="text-accent text-6xl">🗓️</span>
+           </div>
         </div>
       </div>
     </main>

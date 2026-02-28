@@ -12,7 +12,7 @@ export default function ProfileCard() {
         {/* Main Circle Frame */}
         <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-border-subtle bg-card shadow-xl transition-all duration-700 group-hover:border-cyan-600">
           <Image
-            src="/consultant.avif"
+            src="/images/ayub.JPEG"
             alt="Adam Tech"
             fill
             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100 ease-out"
