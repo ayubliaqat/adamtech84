@@ -48,7 +48,7 @@ export default function ProfileCard() {
             {["English", "Arabic", "German"].map((lang) => (
               <span 
                 key={lang} 
-                className="px-3 py-1 rounded-full border border-border-subtle text-[10px] text-muted font-bold bg-card hover:border-cyan-600 hover:text-cyan-600 transition-all cursor-default"
+                className="px-3 py-1 rounded-full border border-border-subtle text-[10px] text-muted font-bold text-foreground/80 hover:border-cyan-600 hover:text-cyan-600 transition-all cursor-default"
               >
                 {lang}
               </span>

@@ -3,7 +3,7 @@
 :root {
   /* Light Mode - Soft & Airy */
   --background: #ffffff;
-  --foreground: #0f172a; 
+  --foreground: #371854; 
   --glow-color: rgba(80, 199, 199, 0.15); /* Soft Teal Glow */
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(0, 0, 0, 0.06);
@@ -13,7 +13,7 @@
 
 .dark {
   /* Dark Mode - Deep Tech Blue/Black */
-  --background: #020617; 
+  --background: #371854; 
   --foreground: #f8fafc;
   --glow-color: rgba(56, 189, 248, 0.1); /* Subtle Electric Blue Glow */
   --card-bg: rgba(15, 23, 42, 0.8);
@@ -49,7 +49,7 @@ body {
 
 /* Pro Glassmorphism */
 .glass {
-  background: var(--card-bg);
+  background: var(--background);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);

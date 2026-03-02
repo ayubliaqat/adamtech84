@@ -32,7 +32,7 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative p-8 rounded-3xl bg-card border border-border-subtle hover:border-cyan-600/50 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-cyan-500/5"
+            className="group relative p-8 rounded-3xl text-foreground/80 border border-border-subtle hover:border-cyan-600/50 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-cyan-500/5"
           >
             {/* Subtle background number/index */}
             <span className="absolute -right-4 -bottom-4 text-8xl font-black text-foreground/[0.03] group-hover:text-cyan-600/[0.05] transition-colors">
