@@ -12,69 +12,68 @@ export default function EngineeringDNA() {
   const principles = [
     {
       id: "01",
-      title: "Resilience by Design",
-      desc: "Infrastructure shouldn't just work; it should be impossible to break. I architect systems with zero-single-point-of-failure logic."
+      title: "Intelligence That Works",
+      desc: "Systems should be built to last. I engineer infrastructure that handles complexity without compromise — low latency, zero single points of failure, and built for growth.",
     },
     {
       id: "02",
-      title: "Clean Intelligence",
-      desc: "AI is only as powerful as the pipeline that feeds it. I prioritize low-latency throughput and scalable data modeling over hype."
+      title: "Intelligence That Works",
+      desc: "Machine learning isn't magic, it's engineering. I build models that are accurate, explainable, and deployable. From computer vision to predictive analytics, the goal is always real-world impact.",
     },
     {
       id: "03",
-      title: "The German Standard",
-      desc: "Navigating the EU tech ecosystem requires precision. I bridge global innovation with local regulatory excellence."
-    }
+      title: "End-to-End Ownership",
+      desc: "From raw data to deployed solution. I own the full lifecycle, architecture, modeling, deployment, and iteration. No handoffs. No shortcuts.",
+    },
   ];
 
   if (!mounted) return null;
 
   return (
-    <section 
-      className="relative w-full py-20 md:py-32 overflow-hidden bg-background transition-colors duration-500"
-    >
+    <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background transition-colors duration-500">
       {/* Subtle background glow that works in both modes */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,#06b6d410_0%,transparent_50%)]" />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        
         {/* 1. Header Section */}
         <div className="text-center mb-16 md:mb-24">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-cyan-600 font-bold tracking-[0.5em] text-[10px] uppercase mb-4 block"
           >
-            Our Core DNA
+            My Core DNA
           </motion.span>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight"
           >
-            Engineering for the <br />
+            Built by Engineers. <br />
             <span className="text-cyan-600 italic font-medium">
-              Next Decade.
+              Driven by Data.
             </span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-muted max-w-2xl mx-auto mt-8 text-base md:text-lg font-light leading-relaxed"
           >
-            We don't just build systems; we architect legacies. Our philosophy is rooted in technical 
-            uncompromising quality and structural integrity.
+            I design and build technology that scales, from intelligent data
+            pipelines to productionready machine learning systems. Every
+            solution is rooted in clean architecture, realworld performance, and
+            long-term reliability.
           </motion.p>
         </div>
 
         {/* 2. Adaptive Cards using your Theme Variables */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {principles.map((item, i) => (
-            <motion.article 
+            <motion.article
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +93,7 @@ export default function EngineeringDNA() {
                 <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight group-hover:text-cyan-600 transition-colors">
                   {item.title}
                 </h3>
-                
+
                 <p className="text-muted text-sm md:text-base font-light leading-relaxed">
                   {item.desc}
                 </p>

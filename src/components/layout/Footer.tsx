@@ -25,18 +25,13 @@ const Footer = () => {
           <div className="flex items-center space-x-10">
             {[
               {
-                icon: <FaGithub size={22} />,
-                href: "https://github.com/your-profile",
-                label: "Github",
-              },
-              {
                 icon: <FaLinkedinIn size={22} />,
-                href: "https://linkedin.com/in/your-profile",
+                href: "http://www.linkedin.com/in/rasheed-ibrahim",
                 label: "LinkedIn",
               },
               {
                 icon: <FaEnvelope size={22} />,
-                href: "mailto:your-email@example.com",
+                href: "mailto:rasheed@adamtech84.com",
                 label: "Email",
               },
             ].map((social) => (

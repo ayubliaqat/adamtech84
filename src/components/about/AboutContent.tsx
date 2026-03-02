@@ -33,44 +33,64 @@ export default function IntroSection() {
         </h1>
 
         <h2 className="text-2xl md:text-3xl text-muted font-light tracking-tight max-w-xl">
-          Technical Lead &{" "}
-          <span className="text-foreground font-medium">Consultant</span>
+          AI Consultant | Telecom Network Solutions{" "}
+          <span className="text-foreground font-medium"></span>
         </h2>
       </header>
 
       {/* 2. SOCIALS - Clean & Aligned */}
       <div className="flex flex-wrap gap-3">
-        <SocialBtn icon={<FaGithub />} label="GitHub" href="#" />
-        <SocialBtn icon={<FaLinkedin />} label="LinkedIn" href="#" />
-        <SocialBtn icon={<FaEnvelope />} label="Email" href="#" />
+        <SocialBtn
+          icon={<FaLinkedin />}
+          label="LinkedIn"
+          href="http://www.linkedin.com/in/rasheed-ibrahim"
+        />
+        <SocialBtn
+          icon={<FaEnvelope />}
+          label="Email"
+          href="Rasheed@adamtech84.com"
+        />
       </div>
 
       {/* 3. YOUR ORIGINAL TEXT - Optimized for Readability */}
       <div className="max-w-2xl space-y-6 text-[15px] md:text-[17px] text-muted leading-relaxed font-light">
         <p>
-          Hi I'm{" "}
-          <strong className="text-foreground font-semibold border-b border-cyan-600/30 pb-0.5">
-            Rasheed!
+          <span className="inline-flex items-center gap-2">
+            <strong className="text-foreground font-semibold border-b border-cyan-600/30 pb-0.5">
+              Hi, I'm Rasheed!
+            </strong>
+            <span className="animate-wave origin-[70%_70%] inline-block">
+              👋
+            </span>
+          </span>
+          <br />I am a{" "}
+          <strong className="text-foreground font-semibold">
+            Data Scientist and AI Consultant
           </strong>{" "}
-          <br />I help organizations and individuals navigate the intersection
-          of{" "}
+          with a background in large-scale telecom engineering. I help
+          organizations navigate the intersection of{" "}
           <strong className="text-foreground font-semibold border-b border-cyan-600/30 pb-0.5">
             Infrastructure and Intelligence
           </strong>
-          . With over 12 years in Telecommunications Engineering and nearly
-          three years dedicated to Applied AI, my approach is rooted in
-          technical precision and clear communication.
+          .
         </p>
 
         <p>
-          From supporting SMEs with network security to guiding junior
-          developers through specialized mentorship for the{" "}
-          <strong className="text-foreground font-semibold border-b border-cyan-600/30 pb-0.5">
-            German tech market
+          I specialize in building machine learning models, designing data
+          pipelines, and turning complex data into actionable insights. Whether
+          it's{" "}
+          <strong className="text-foreground font-semibold">
+            training computer vision models
           </strong>
-          , I focus on sustainable growth and real-world impact. If you are
-          looking for a consultant who listens deeply and delivers with care,
-          let&apos;s connect to build your technical future.
+          , developing predictive algorithms, or architecting scalable data
+          systems, I focus on solutions that work in the real world.
+        </p>
+
+        <p>
+          If you are looking for a{" "}
+          <strong className="text-foreground font-medium">consultant</strong>{" "}
+          who listens deeply and delivers with care, let&apos;s connect to build
+          your technical future.
         </p>
       </div>
     </section>

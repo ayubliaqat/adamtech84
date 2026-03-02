@@ -55,16 +55,28 @@ export default function AboutSection() {
               </h3>
               <div className="space-y-0">
                 <TimelineItem
-                  title="Technical Lead"
-                  company="Telecommunications Corp"
-                  period="2018 — Present"
-                  description="Leading cross-functional teams to deploy scalable network infrastructures and AI-driven monitoring systems."
+                  title="Data Scientist"
+                  company="AI & Infrastructure Solutions"
+                  period="2022 — Present"
+                  description="Developing machine learning models and data pipelines to transform complex datasets into actionable business intelligence."
                 />
                 <TimelineItem
-                  title="Senior Consultant"
-                  company="Tech Advisors Intl"
-                  period="2012 — 2018"
-                  description="Advised global clients on telecommunications strategy and electrical engineering optimizations."
+                  title="Solution Manager"
+                  company="Telecom Systems Group"
+                  period="2019 — 2022"
+                  description="Bridging technical infrastructure with business needs, architecting scalable systems for long-term growth."
+                />
+                <TimelineItem
+                  title="Network Operation Lead"
+                  company="Telecommunications Corp"
+                  period="2014 — 2018"
+                  description="Overseeing large-scale network performance, security protocols, and cross-functional team coordination."
+                />
+                <TimelineItem
+                  title="Senior Network Engineer"
+                  company="Global Infrastructure Partners"
+                  period="2011 — 2014"
+                  description="Engineering high-precision electrical and telecommunications systems with a focus on technical reliability."
                   isLast
                 />
               </div>

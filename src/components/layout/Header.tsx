@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // 1. Import the hook
+import { usePathname } from "next/navigation";
 import { FaHome, FaUser, FaBriefcase } from "react-icons/fa";
 import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
 export default function Header() {
-  const pathname = usePathname(); // 2. Get current path
+  const pathname = usePathname();
   const [time, setTime] = useState(new Date());
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -15,7 +15,7 @@ export default function Header() {
   useEffect(() => {
     setMounted(true);
     const savedTheme =
-      (localStorage.getItem("theme") as "light" | "dark") || "light";
+      (localStorage.getItem("theme") as "light" | "dark") || "dark"; // Default to dark as primary
     setTheme(savedTheme);
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
 
@@ -27,15 +27,14 @@ export default function Header() {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  // NEW CODE (Forced to Berlin Timezone)
   const formattedTime = time.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
-    timeZone: "Europe/Berlin", // This ensures everyone sees Germany's time
+    timeZone: "Europe/Berlin",
   });
 
   if (!mounted) return <div className="h-20" />;
@@ -57,7 +56,6 @@ export default function Header() {
         className="pointer-events-auto flex justify-center"
       >
         <div className="glass flex items-center gap-1 p-1.5 rounded-full shadow-2xl">
-          {/* 3. Pass the 'active' prop by checking the pathname */}
           <NavLink
             href="/"
             icon={<FaHome size={14} />}
@@ -79,18 +77,20 @@ export default function Header() {
 
           <div className="w-[1px] h-4 bg-border-subtle mx-1 hidden sm:block" />
 
+          {/* Updated Theme Toggle to match NavLink styling */}
           <button
             onClick={toggleTheme}
-            className="p-2.5 hover:bg-foreground/5 rounded-full transition-all duration-300 text-foreground flex items-center justify-center"
+            className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
+              theme === "dark"
+                ? "bg-foreground/10 text-foreground shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
+                : "text-muted hover:text-foreground hover:bg-foreground/5"
+            }`}
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? (
-              <BsSunFill
-                size={16}
-                className="text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.4)]"
-              />
+              <BsSunFill size={16} className="text-foreground" />
             ) : (
-              <BsMoonStarsFill size={15} className="text-slate-700" />
+              <BsMoonStarsFill size={15} className="text-foreground/70" />
             )}
           </button>
         </div>
@@ -109,7 +109,6 @@ export default function Header() {
   );
 }
 
-// 4. Update NavLink to handle the active state
 function NavLink({
   href,
   icon,
@@ -125,7 +124,7 @@ function NavLink({
     <Link
       href={href}
       className={`
-        flex items-center gap-2 px-3 py-2 md:px-5 md:py-2.5 text-[13px] font-medium rounded-full transition-all duration-300 group
+        relative flex items-center gap-2 px-3 py-2 md:px-5 md:py-2.5 text-[13px] font-medium rounded-full transition-all duration-300 group
         ${
           active
             ? "bg-foreground/10 text-foreground shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
@@ -134,15 +133,16 @@ function NavLink({
       `}
     >
       <span
-        className={`transition-colors ${active ? "text-accent" : "text-foreground/70 group-hover:text-accent"}`}
+        className={`transition-colors ${
+          active ? "text-foreground" : "text-foreground/70 group-hover:text-foreground"
+        }`}
       >
         {icon}
       </span>
       <span className="hidden sm:inline">{label}</span>
 
-      {/* Optional: Add a small dot or underglow for the active link */}
       {active && (
-        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full hidden md:block" />
+        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-foreground rounded-full hidden md:block" />
       )}
     </Link>
   );

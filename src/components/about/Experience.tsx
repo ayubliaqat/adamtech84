@@ -7,7 +7,7 @@ export default function ExperienceSection() {
     {
       title: "Technical Lead & AI Consultant",
       company: "Strategic Tech Solutions",
-      period: "2021 — PRESENT",
+      period: "2023 — PRESENT",
       description: "Leading the integration of LLMs and RAG pipelines into existing enterprise infrastructures. Focused on automating decision-making processes for SMEs while maintaining high-security standards in the German market.",
     },
     {
