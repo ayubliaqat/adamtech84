@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap', // Ensures text remains visible during font load
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
   authors: [{ name: "AdamTech Team" }],
   creator: "AdamTech",
   metadataBase: new URL("https://adamtech84.com"),
+
+  // --- NEW FAVICON: TEXT-BASED "A" ---
+  icons: {
+    icon: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%230891b2%22/><text y=%22.7em%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 font-family=%22sans-serif%22>A</text></svg>',
+  },
+
   openGraph: {
     type: "website",
     locale: "en_DE",
@@ -67,15 +73,10 @@ export default function RootLayout({
           transition-colors duration-500
         `}
       >
-        {/* HEADER: Z-index check to ensure it stays above Hero */}
         <Header />
-        
-        {/* MAIN: Ensure content doesn't get hidden behind fixed headers */}
         <main className="flex-1 relative">
           {children}
         </main>
-        
-        {/* FOOTER: Anchored to bottom */}
         <Footer />
       </body>
     </html>
