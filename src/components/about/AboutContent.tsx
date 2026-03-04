@@ -56,22 +56,20 @@ export default function IntroSection() {
       <div className="max-w-2xl space-y-6 text-[15px] md:text-[17px] text-muted leading-relaxed font-light">
         <p>
           <span className="inline-flex items-center gap-2">
-            <strong className="text-foreground font-semibold border-b border-cyan-600/30 pb-0.5">
-              Hi, I'm Rasheed!
-            </strong>
+            <strong className="text-foreground pb-0.5">Hi, I'm Rasheed!</strong>
             <span className="animate-wave origin-[70%_70%] inline-block">
               👋
             </span>
           </span>
           <br />I am a{" "}
-          <strong className="text-foreground font-semibold">
+          <span className="text-foreground">
             Data Scientist and AI Consultant
-          </strong>{" "}
+          </span>{" "}
           with a background in large-scale telecom engineering. I help
           organizations navigate the intersection of{" "}
-          <strong className="text-foreground font-semibold border-b border-cyan-600/30 pb-0.5">
+          <span className="text-foreground pb-0.5">
             Infrastructure and Intelligence
-          </strong>
+          </span>
           .
         </p>
 
@@ -79,18 +77,18 @@ export default function IntroSection() {
           I specialize in building machine learning models, designing data
           pipelines, and turning complex data into actionable insights. Whether
           it's{" "}
-          <strong className="text-foreground font-semibold">
+          <span className="text-foreground">
             training computer vision models
-          </strong>
+          </span>
           , developing predictive algorithms, or architecting scalable data
           systems, I focus on solutions that work in the real world.
         </p>
 
         <p>
           If you are looking for a{" "}
-          <strong className="text-foreground font-medium">consultant</strong>{" "}
-          who listens deeply and delivers with care, let&apos;s connect to build
-          your technical future.
+          <span className="text-foreground">consultant</span> who listens deeply
+          and delivers with care, let&apos;s connect to build your technical
+          future.
         </p>
       </div>
     </section>

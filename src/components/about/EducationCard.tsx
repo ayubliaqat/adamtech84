@@ -18,10 +18,10 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="studies" className="scroll-mt-48 space-y-12">
+    <section id="studies" className="scroll-mt-32 space-y-4">
       {/* Section Header - Cyan-600 Standard */}
       <h3 className="text-cyan-600 uppercase text-[11px] font-black tracking-[0.4em]">
-        // 02. Academic Foundation
+        Academic Foundation
       </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

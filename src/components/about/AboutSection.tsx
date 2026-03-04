@@ -51,7 +51,7 @@ export default function AboutSection() {
             <section id="experience" className="scroll-mt-12 space-y-12">
               <h3 className="text-cyan-600 uppercase text-[11px] font-black tracking-[0.4em] flex items-center gap-3">
                 <span className="h-[1px] w-8 bg-cyan-600/30"></span>
-                // 01. Professional Path
+                Professional Path
               </h3>
               <div className="space-y-0">
                 <TimelineItem
@@ -86,7 +86,7 @@ export default function AboutSection() {
             <section id="skills" className="scroll-mt-32 space-y-12 pb-20">
               <h3 className="text-cyan-600 uppercase text-[11px] font-black tracking-[0.4em] flex items-center gap-3">
                 <span className="h-[1px] w-8 bg-cyan-600/30"></span>
-                // 03. Technical Stack
+                Technical Stack
               </h3>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill) => (
