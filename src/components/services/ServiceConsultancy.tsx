@@ -47,11 +47,6 @@ export default function ServiceConsultancy() {
           >
             {/* Vertical Accent Line */}
             <div className="absolute -left-6 top-0 w-[2px] h-20 bg-accent opacity-50 hidden lg:block" />
-
-            <span className="text-accent font-black tracking-[0.4em] text-[10px] uppercase block mb-6">
-              // Pillar 01
-            </span>
-
             <h2
               id="consultancy-heading"
               className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground leading-[0.9]"
@@ -62,12 +57,12 @@ export default function ServiceConsultancy() {
 
             <p className="mt-8 text-muted text-[17px] leading-relaxed font-light max-w-sm">
               Providing high-level technical advisory. I bridge the gap between
-              <span className="text-foreground font-medium">
+              <span className="text-foreground">
                 {" "}
                 complex infrastructure
               </span>{" "}
               and
-              <span className="text-foreground font-medium">
+              <span className="text-foreground ">
                 {" "}
                 intelligent automation
               </span>

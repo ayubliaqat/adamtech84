@@ -72,9 +72,7 @@ export default function TheDualPath() {
             </div>
 
             <div className="relative z-10">
-              <span className="text-cyan-500 font-mono text-[10px] font-bold tracking-widest uppercase mb-4 block">
-                // Pillar 01
-              </span>
+              
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
                 Consulting <br />
                 <span className="text-cyan-600"></span>
@@ -108,9 +106,6 @@ export default function TheDualPath() {
             </div>
 
             <div className="relative z-10">
-              <span className="text-cyan-600 font-mono text-[10px] font-bold tracking-widest uppercase mb-4 block">
-                // Pillar 02
-              </span>
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
                 Academy & <br />
                 <span className="text-cyan-500">Mentorship</span>

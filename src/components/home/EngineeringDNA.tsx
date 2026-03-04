@@ -85,7 +85,6 @@ export default function EngineeringDNA() {
               <div>
                 <div className="flex items-center justify-between mb-8">
                   <span className="font-mono text-cyan-500/50 text-[11px] font-bold group-hover:text-cyan-600 transition-colors">
-                    // {item.id}
                   </span>
                   <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_10px_#06b6d4]" />
                 </div>

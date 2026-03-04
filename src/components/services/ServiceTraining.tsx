@@ -61,7 +61,6 @@ export default function ServiceTraining() {
             whileInView={{ opacity: 1 }}
             className="text-cyan-600 font-bold tracking-[0.4em] text-[10px] md:text-[11px] uppercase mb-6 block"
           >
-            // Pillar 02: Educational Excellence
           </motion.span>
 
           <h2
@@ -75,7 +74,7 @@ export default function ServiceTraining() {
           <p className="text-muted max-w-2xl text-[17px] md:text-xl font-light leading-relaxed transition-colors duration-500">
             Bridge the gap between academic theory and industry reality.
             Practical mentorship designed for
-            <span className="text-foreground font-medium italic underline underline-offset-8 decoration-cyan-500/30 ml-1">
+            <span className="text-foreground ml-1">
               high-impact careers
             </span>
             .
@@ -130,8 +129,8 @@ export default function ServiceTraining() {
             className="space-y-12"
           >
             <h3 className="text-3xl md:text-5xl font-bold italic text-foreground leading-[1.1] tracking-tight transition-colors duration-500">
-              &quot;A practical approach tailored for the{" "}
-              <span className="text-cyan-600">German job market.</span>&quot;
+              A practical approach tailored for the{" "}
+              <span className="text-cyan-600">German job market.</span>
             </h3>
 
             <div className="grid grid-cols-2 gap-x-8 gap-y-12">

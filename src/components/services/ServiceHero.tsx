@@ -65,9 +65,9 @@ export default function ServiceHero() {
 
           {/* Description */}
           <p className="text-[17px] md:text-xl text-muted leading-relaxed max-w-2xl mx-auto font-light transition-colors duration-500">
-            Leveraging <span className="text-foreground font-semibold">12+ years</span> of industry experience in 
+            Leveraging <span className="text-foreground">12+ years</span> of industry experience in 
             Telecommunications and AI to build robust systems 
-            and launch <span className="text-cyan-600/80 underline decoration-cyan-600/20 underline-offset-4">high-impact careers</span>.
+            and launch <span className="text-cyan-600/80 ">high-impact careers</span>.
           </p>
 
           {/* Scroll Indicator */}
