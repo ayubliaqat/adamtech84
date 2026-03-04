@@ -18,7 +18,7 @@ export default function ProfileCard() {
   {/* Changed bg-zinc-900 to bg-white to ensure the image background is CLEAN */}
   <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-white bg-white shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-700 group-hover:border-cyan-500">
     <Image
-      src="/images/rasheed.JFIF" 
+      src="/images/rasheed.jfif" 
       alt="Adam Tech"
       fill
       className="object-cover  transition-all duration-1000 scale-105 group-hover:scale-100 ease-out"
