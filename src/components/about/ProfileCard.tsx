@@ -6,29 +6,25 @@ export default function ProfileCard() {
     <div className="flex flex-col items-center lg:items-start gap-8 w-full">
       {/* 1. CIRCULAR IMAGE CONTAINER */}
       <div className="relative group">
+        {/* Outer Glow - Subtle cyan glow for separation in Dark Mode */}
+        <div className="absolute -inset-2 rounded-full bg-cyan-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        
         {/* Outer Ring Animation */}
         <div className="absolute -inset-1.5 rounded-full border border-cyan-500/10 group-hover:border-cyan-500/40 transition-colors duration-700 pointer-events-none" />
         
-        {/* Main Circle Frame - Background stays transparent/neutral */}
-       <div className="relative group">
-  {/* Outer Glow - Subtle cyan glow to separate the light circle from the dark background */}
-  <div className="absolute -inset-2 rounded-full bg-cyan-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-  
-  {/* Main Circle Frame */}
-  {/* Changed bg-zinc-900 to bg-white to ensure the image background is CLEAN */}
-  <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-white bg-white shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-700 group-hover:border-cyan-500">
-    <Image
-      src="/images/rasheed.jfif" 
-      alt="Adam Tech"
-      fill
-      className="object-cover  transition-all duration-1000 scale-105 group-hover:scale-100 ease-out"
-      sizes="(max-width: 768px) 176px, 208px"
-      priority
-    />
-    
-    {/* No dark tint here - keeping it 100% clean */}
-  </div>
-</div>
+        {/* Main Circle Frame */}
+        {/* Using bg-white and border-white to ensure a clean photo background regardless of theme */}
+        <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-white bg-white shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-700 group-hover:border-cyan-500">
+          <Image
+            // Path corrected to match your file properties (lowercase .jfif)
+            src="/images/rasheed.jfif" 
+            alt="Adam Tech Profile"
+            fill
+            className="object-cover transition-all duration-1000 scale-105 group-hover:scale-100 ease-out"
+            sizes="(max-width: 768px) 176px, 208px"
+            priority
+          />
+        </div>
       </div>
 
       {/* 2. LIVE STATUS & DETAILS */}
