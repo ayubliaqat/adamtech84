@@ -3,13 +3,14 @@ import TechMarquee from "@/components/home/TechMarquee";
 import TheDualPath from "@/components/home/TheDualPath";
 import EngineeringDNA from "@/components/home/EngineeringDNA";
 import ServiceCTA from "@/components/services/ServiceCTA";
+import VideoShowcase from "@/components/home/VideoShowcase";
 
 export default function HomePage() {
   return (
     <main className="bg-background min-h-screen overflow-x-hidden">
       {/* H1 is inside HomeHero (Crucial for SEO) */}
       <HomeHero />
-
+      <VideoShowcase />
       {/* Decorative but SEO-friendly Marquee */}
       <TechMarquee />
 

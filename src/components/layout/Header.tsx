@@ -10,12 +10,12 @@ export default function Header() {
   const pathname = usePathname();
   const [time, setTime] = useState(new Date());
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     setMounted(true);
     const savedTheme =
-      (localStorage.getItem("theme") as "light" | "dark") || "dark"; // Default to dark as primary
+      (localStorage.getItem("theme") as "light" | "dark") || "dark";
     setTheme(savedTheme);
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
 
@@ -40,20 +40,19 @@ export default function Header() {
   if (!mounted) return <div className="h-20" />;
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 p-4 md:p-6 lg:px-12 flex items-center pointer-events-none">
-      <div className="flex-1 hidden md:block text-[12px] font-medium text-muted pointer-events-auto">
-        <span className="text-muted/60 uppercase tracking-tighter text-[10px]">
+    <header className="fixed top-0 left-0 w-full z-50 p-4 md:p-6 lg:px-12 flex items-center justify-between pointer-events-none">
+      {/* Updated: Now visible on all screens */}
+      <div className="flex-1 text-[10px] md:text-[12px] font-medium text-muted pointer-events-auto leading-tight">
+        <span className="text-muted/60 uppercase tracking-tighter text-[9px] md:text-[10px]">
           Based in
         </span>{" "}
         <br />
         <span className="text-foreground font-semibold">Europe/Berlin</span>
       </div>
 
-      <div className="flex-1 md:hidden" />
-
       <nav
         aria-label="Main Navigation"
-        className="pointer-events-auto flex justify-center"
+        className="pointer-events-auto flex justify-center px-2"
       >
         <div className="glass flex items-center gap-1 p-1.5 rounded-full shadow-2xl">
           <NavLink
@@ -77,30 +76,31 @@ export default function Header() {
 
           <div className="w-[1px] h-4 bg-border-subtle mx-1 hidden sm:block" />
 
-          {/* Updated Theme Toggle to match NavLink styling */}
-          <button
-            onClick={toggleTheme}
-            className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
-              theme === "dark"
-                ? "bg-foreground/10 text-foreground shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
-                : "text-muted hover:text-foreground hover:bg-foreground/5"
-            }`}
-            aria-label="Toggle Theme"
-          >
-            {theme === "dark" ? (
-              <BsSunFill size={16} className="text-foreground" />
-            ) : (
-              <BsMoonStarsFill size={15} className="text-foreground/70" />
-            )}
-          </button>
+          {/* <button
+    onClick={toggleTheme}
+    className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
+      theme === "dark"
+        ? "bg-foreground/10 text-foreground shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
+        : "text-muted hover:text-foreground hover:bg-foreground/5"
+    }`}
+    aria-label="Toggle Theme"
+  >
+    {theme === "dark" ? (
+      <BsSunFill size={16} className="text-foreground" />
+    ) : (
+      <BsMoonStarsFill size={15} className="text-foreground/70" />
+    )}
+  </button> 
+*/}
         </div>
       </nav>
 
-      <div className="flex-1 text-[12px] font-mono text-muted text-right pointer-events-auto">
-        <span className="hidden sm:inline text-muted/60 uppercase tracking-tighter text-[10px]">
+      {/* Local Time side */}
+      <div className="flex-1 text-[10px] md:text-[12px] font-mono text-muted text-right pointer-events-auto leading-tight">
+        <span className="hidden sm:inline text-muted/60 uppercase tracking-tighter text-[9px] md:text-[10px]">
           Local Time
         </span>{" "}
-        <br />
+        <br className="hidden sm:block" />
         <span className="text-foreground tabular-nums font-bold">
           {formattedTime}
         </span>
@@ -134,7 +134,9 @@ function NavLink({
     >
       <span
         className={`transition-colors ${
-          active ? "text-foreground" : "text-foreground/70 group-hover:text-foreground"
+          active
+            ? "text-foreground"
+            : "text-foreground/70 group-hover:text-foreground"
         }`}
       >
         {icon}
