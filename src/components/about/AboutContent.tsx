@@ -39,22 +39,18 @@ export default function IntroSection() {
       </header>
 
       {/* 2. SOCIALS - Clean & Aligned */}
- <div className="flex flex-wrap gap-3">
-  <SocialBtn
-    icon={<FaLinkedin />}
-    label="LinkedIn"
-    href="https://www.linkedin.com/in/rasheed-ibrahim"
-  />
-<SocialBtn
-  icon={<FaEnvelope />}
-  label="Email"
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=rasheed@adamtech84.com"
-/>
-
-
-
-
-</div>
+      <div className="flex flex-wrap gap-3">
+        <SocialBtn
+          icon={<FaLinkedin />}
+          label="LinkedIn"
+          href="https://www.linkedin.com/in/rasheed-ibrahim"
+        />
+        <SocialBtn
+          icon={<FaEnvelope />}
+          label="Email"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=rasheed@adamtech84.com"
+        />
+      </div>
       {/* 3. YOUR ORIGINAL TEXT - Optimized for Readability */}
       <div className="max-w-2xl space-y-6 text-[15px] md:text-[17px] text-muted leading-relaxed font-light">
         <p>

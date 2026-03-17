@@ -4,8 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { FiUsers, FiCheckCircle, FiAward } from "react-icons/fi";
 
 const stats = [
-  { label: "Satisfied Clients", value: 150, suffix: "+", icon: <FiUsers /> },
-  { label: "Successful Projects", value: 400, suffix: "+", icon: <FiCheckCircle /> },
+  { label: "Satisfied Clients", value: 30, suffix: "+", icon: <FiUsers /> },
+  { label: "Successful Projects", value: 50, suffix: "+", icon: <FiCheckCircle /> },
   { label: "Digital Awards", value: 12, suffix: "", icon: <FiAward /> },
 ];
 
